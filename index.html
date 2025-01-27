@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: linear-gradient(135deg, #fdfbfb, #ebedee);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        input {
+            width: 95%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #ecf0f1;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+            background-color: #ffffff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        #enviarE {
+            background-color: #28a745;
+        }
+
+        #enviarS {
+            background-color: #28a745;
+        }
+
+        #enviar:hover {
+            background-color: #218838;
+        }
+
+        button[type="reset"] {
+            background-color: #dc3545;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #c82333;
+        }
+        #BtnEntrada {
+            background-color: #3498db;
+        }
+        #BtnEntrada2 {
+            background-color: #3498db;
+        }
+        #BtnSalida {
+            background-color: #3498db;
+        }
+        #BtnSalida2 {
+            background-color: #3498db;
+        }
+        
+        #SectionEntrada {
+            display: none;
+        }
+        #SectionSalida {
+            display: none;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            form {
+                padding: 20px;
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1em;
+            }
+
+            input {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="bonotes">
+        <button id="BtnEntrada">Entrada</button>
+        <button id="BtnSalida">Salida</button>
+    </section>
+
+    <div id="SectionEntrada">
+        <form action="https://script.google.com/macros/s/AKfycbzgiw-v8jSLIIE9Eb6BEX73UYASqJzHMLYOOoQ0wsKCp1fKOYpU-AvxuNrOOEkEnlMTQg/exec" method="post">
+            <h1>Conjunto Residencial</h1>
+            <h1>Caminos Del Norte</h1>
+            <h2>Registro de Entrada de Autos</h2>
+    
+            <label for="torre">Torre:</label>
+            <input type="text" id="torre" name="torre" required>
+    
+            <label for="apartamento">Apartamento:</label>
+            <input type="text" id="apartamento" name="apartamento" required>
+    
+            <label for="parqueadero">Parqueadero:</label>
+            <input type="text" id="parqueadero" name="parqueadero" required>
+    
+            <label for="plata">Placa:</label>
+            <input type="text" id="plata" name="plata" required>
+    
+            <button type="submit" id="enviarE">Enviar</button>
+            <button type="reset">Limpiar</button>
+        </form>
+    </div>
+
+    <div id="SectionSalida">
+        <form action="https://script.google.com/macros/s/AKfycbxzqaXDS4npMW3LUwG9iNqiFonpsbvc8wETi6JbQY0riTyj6_gSXbmvbu7p5VuUJoKd0Q/exec" method="post">
+            <h1>Conjunto Residencial</h1>
+            <h1>Caminos Del Norte</h1>
+            <h2>Registro de Salida de Autos</h2>
+    
+            <label for="torre">Torre:</label>
+            <input type="text" id="torre" name="torre" required>
+    
+            <label for="apartamento">Apartamento:</label>
+            <input type="text" id="apartamento" name="apartamento" required>
+    
+            <label for="parqueadero">Parqueadero:</label>
+            <input type="text" id="parqueadero" name="parqueadero" required>
+    
+            <label for="plata">Placa:</label>
+            <input type="text" id="plata" name="plata" required>
+    
+            <button type="submit" id="enviarS">Enviar</button>
+            <button type="reset">Limpiar</button>
+        </form>
+    </div>
+</body>
+    <script>
+        let BtnEntrada = document.getElementById('BtnEntrada')
+        BtnEntrada.addEventListener('click', MostrarSecEntrada)
+        let BtnSalida = document.getElementById('BtnSalida')
+        BtnSalida.addEventListener('click', MostrarSecSalida)
+
+        function MostrarSecEntrada() {
+            document.getElementById("SectionEntrada").style.display = "block";
+            document.getElementById("bonotes").style.display = "none";
+        }
+        function MostrarSecSalida() {
+            document.getElementById("SectionSalida").style.display = "block";
+            document.getElementById("bonotes").style.display = "none";
+        }
+        document.getElementById("enviarE").addEventListener('click' , () => {
+            alert("Datos enviados correctamente: Registro de entrada de Autos.")
+        });
+            document.getElementById("enviarS").addEventListener('click' , () => {
+            alert("Datos enviados correctamente: Registro de salida de Autos.")
+        });
+    </script>
+</html>
