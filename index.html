@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Registro</title>
     <style>
         body {
@@ -17,44 +18,43 @@
 
         form {
             background: linear-gradient(135deg, #fdfbfb, #ebedee);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
             text-align: center;
         }
 
         h1, h2 {
             color: #2c3e50;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         h1 {
-            font-size: 2.4em;
+            font-size: 1.8em;
             font-weight: bold;
         }
 
         h2 {
-            font-size: 1.6em;
-            font-weight: 400;
+            font-size: 1.2em;
+            font-weight: 300;
         }
 
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: #34495e;
-            font-size: 1.2em;
         }
 
         input {
             width: 95%;
-            padding: 16px;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin-bottom: 15px;
             border: 1px solid #bdc3c7;
-            border-radius: 10px;
-            font-size: 18px;
+            border-radius: 8px;
+            font-size: 16px;
             background-color: #ecf0f1;
             transition: all 0.3s ease;
         }
@@ -62,20 +62,20 @@
         input:focus {
             border-color: #3498db;
             outline: none;
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
             background-color: #ffffff;
         }
 
         button {
             width: 100%;
-            padding: 15px;
-            font-size: 18px;
+            padding: 12px;
+            font-size: 16px;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             color: #fff;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             transition: background-color 0.3s ease;
         }
 
@@ -98,56 +98,63 @@
         button[type="reset"]:hover {
             background-color: #c82333;
         }
-
-        #BtnEntrada, #BtnEntrada2, #BtnSalida, #BtnSalida2 {
+        #BtnEntrada {
             background-color: #3498db;
         }
-
-        #BtnEntrada:hover, #BtnSalida:hover {
-            background-color: #2979b3;
+        #BtnEntrada2 {
+            background-color: #3498db;
         }
-
-        #SectionEntrada, #SectionSalida {
+        #BtnSalida {
+            background-color: #3498db;
+        }
+        #BtnSalida2 {
+            background-color: #3498db;
+        }
+        
+        #SectionEntrada {
+            display: none;
+        }
+        #SectionSalida {
             display: none;
         }
 
-        /* Ajustes para pantallas pequeñas */
+        /* Estilos para pantallas más pequeñas */
         @media (max-width: 600px) {
             body {
                 padding: 10px;
             }
 
             form {
-                padding: 30px;
+                padding: 20px;
                 width: 100%;
-                max-width: 95%;
+                max-width: 90%;
             }
 
             h1 {
-                font-size: 2em;
+                font-size: 1.5em;
             }
 
             h2 {
-                font-size: 1.4em;
+                font-size: 1em;
             }
 
             input {
-                font-size: 16px;
-                padding: 14px;
+                font-size: 14px;
+                padding: 10px;
             }
 
             button {
-                font-size: 16px;
-                padding: 12px;
+                font-size: 14px;
+                padding: 10px;
             }
 
             #bonotes {
                 flex-direction: column;
-                gap: 12px;
+                gap: 10px;
             }
 
             button {
-                width: 95%;
+                width: 90%;
                 margin: 0 auto;
             }
         }
@@ -205,29 +212,25 @@
         </form>
     </div>
 </body>
-<script>
-    let BtnEntrada = document.getElementById('BtnEntrada');
-    BtnEntrada.addEventListener('click', MostrarSecEntrada);
+    <script>
+        let BtnEntrada = document.getElementById('BtnEntrada')
+        BtnEntrada.addEventListener('click', MostrarSecEntrada)
+        let BtnSalida = document.getElementById('BtnSalida')
+        BtnSalida.addEventListener('click', MostrarSecSalida)
 
-    let BtnSalida = document.getElementById('BtnSalida');
-    BtnSalida.addEventListener('click', MostrarSecSalida);
-
-    function MostrarSecEntrada() {
-        document.getElementById("SectionEntrada").style.display = "block";
-        document.getElementById("bonotes").style.display = "none";
-    }
-
-    function MostrarSecSalida() {
-        document.getElementById("SectionSalida").style.display = "block";
-        document.getElementById("bonotes").style.display = "none";
-    }
-
-    document.getElementById("enviarE").addEventListener('click', () => {
-        alert("Datos enviados correctamente: Registro de entrada de Autos.");
-    });
-
-    document.getElementById("enviarS").addEventListener('click', () => {
-        alert("Datos enviados correctamente: Registro de salida de Autos.");
-    });
-</script>
+        function MostrarSecEntrada() {
+            document.getElementById("SectionEntrada").style.display = "block";
+            document.getElementById("bonotes").style.display = "none";
+        }
+        function MostrarSecSalida() {
+            document.getElementById("SectionSalida").style.display = "block";
+            document.getElementById("bonotes").style.display = "none";
+        }
+        document.getElementById("enviarE").addEventListener('click' , () => {
+            alert("Datos enviados correctamente: Registro de entrada de Autos.")
+        });
+            document.getElementById("enviarS").addEventListener('click' , () => {
+            alert("Datos enviados correctamente: Registro de salida de Autos.")
+        });
+    </script>
 </html>
